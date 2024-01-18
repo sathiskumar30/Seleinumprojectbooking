@@ -8,7 +8,7 @@ class Frontpage(Basepage):
     def __init__(self,driver):
         super().__init__(driver)
 
-    login_xpath= "//span[text()='Login/SignUp']"
+    login_xpath = "//span[text()='Login/SignUp']"
     bus_linktext = "Buses"
 
     def login_button(self):
@@ -16,7 +16,7 @@ class Frontpage(Basepage):
         return LoginPage(self.driver)
 
     def bus_booking_btn(self):
-        self.click_a_element("bus_linktext",self.bus_linktext)
+        self.wait_click_a_element("bus_linktext",self.bus_linktext,2)
         return Bookings(self.driver)
 
     # login_button_xpath = "//div[@class='d-flex']//li[1]//a[1]"

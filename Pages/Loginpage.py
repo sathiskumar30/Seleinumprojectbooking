@@ -22,7 +22,7 @@ class LoginPage(Basepage):
         self.click_a_element("login2_xpath", self.login2_xpath)
 
     def enter_name(self,name):
-        self.wait_enter_a_value("name_name",self.name_name,name)
+        self.wait_enter_a_value("name_name",self.name_name,name,10)
 
     def enter_number(self, number):
         self.enter_a_value("number_name", self.number_name, number)

@@ -1,6 +1,10 @@
 import time
 from selenium.webdriver import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from Pages.Basepage import Basepage
+from Utilities import Configuration
 
 
 class Bookings(Basepage):
@@ -15,7 +19,8 @@ class Bookings(Basepage):
     passenger_id = "passenger-list"
     teenager_xpath = "teenager_xpath "
     return_xpath = "//input[@placeholder='Return']"
-    book_button_xpath = "//div[@class='book-cta']//button[@class='c-btn u-link  enabled']"
+    book_button_xpath = "//button[contains(text(),'B')]"
+    book_button_linktext = "BOOK"
     confirm_book_btn_xpath = "//div[@class='cnfrm-cntnr continue']//button"
     stop = "// div[ @class ='fltr u-pos-rel arln'] // span[@ class ='checkbox-list']// div[@ data-checkboxindex=0]// span[@ class ='ixi-icon-tick check-icon']"
     bus_from_xpath = "//input[@placeholder='From Station']"
@@ -75,7 +80,7 @@ class Bookings(Basepage):
     def flight_brand(self):
         for i in range(0,2):
             model_xpath = "//div[@class='fltr u-pos-rel arln']//span[@class='checkbox-list']//div[@data-checkboxindex="+str(i)+"]//span[@class ='ixi-icon-tick check-icon']"
-            self.wait_click_a_element("model_xpath",model_xpath,5)
+            self.wait_click_a_element("model_xpath",model_xpath,2)
 
     def booking_button(self):
         self.wait_click_a_element("book_button_xpath",self.book_button_xpath,5)
@@ -83,10 +88,10 @@ class Bookings(Basepage):
     def confirm_button(self):
         self.wait_click_a_element("confirm_book_btn_xpath",self.confirm_book_btn_xpath,10)
 
-    def flight_booking(self,fromm,to,dep_date,adult,child):
+    def flight_booking(self,fromm,to,drop_value,dep_date,adult,child):
         self.cancel_existing()
-        self.select_from(fromm)
-        self.select_to(to)
+        self.select_from(fromm,drop_value)
+        self.select_to(to,drop_value)
         self.departure_date(dep_date)
         self.return_date()
         time.sleep(2)
@@ -140,22 +145,44 @@ class Bookings(Basepage):
     def continue_btn(self):
         self.click_a_element("contiune_btn_xpath",self.contiune_btn_xpath)
 
+    def price_selection(self):
+        price_range = Configuration.read_configuration("base info", "price_range")
+        try:
+            print("Script starts here")
+            price_elements = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_all_elements_located((By.XPATH, "//strong[@class='h5 fare']/span"))
+            )
+            raw_prices = [span.text.replace(',', '') for span in price_elements]
+            print("this is the list:", raw_prices)
+            filtered_prices = [int(raw_price) for raw_price in raw_prices if int(raw_price) <= int(price_range)]
+            print("this is filtered list:", filtered_prices)
+            sorted_prices = sorted(filtered_prices)
+            print("this is sorted list:", sorted_prices)
+            lowest_price_index = filtered_prices.index(sorted_prices[0])
+            print("this is the index of the element :", lowest_price_index)
+            show_seats_xpath = "(//button[contains(text(),'Show Seats')])[" + str(lowest_price_index+1) + "]"
+            self.wait_click_a_element("show_seats_xpath", show_seats_xpath, 5)
+            print("script ends here")
+        except Exception as e:
+            print(f"An error occurred: {str(e)}")
+
     def bus_booking(self,fromm,to,drop_value,boarding_point,dropping_point):
-        time.sleep(2)
+        time.sleep(3)
         self.bus_select_from(fromm,drop_value)
         self.bus_select_to(to,drop_value)
         self.tomorrow_btn()
+        time.sleep(5)
         self.selecting_ac()
         self.boarding_arrow_click()
         self.boarding_point(boarding_point)
-        # self.dropping_arrow_click()
-        # self.dropping_point(dropping_point)
-        time.sleep(4)
-        self.show_seats_btn()
+        print("Script started")
+        time.sleep(3)
+        self.price_selection()
+        time.sleep(2)
         self.seat_selection_btn()
         self.selecting_another_board()
         time.sleep(1)
         self.selecting_another_board()
         self.continue_btn()
-        time.sleep(3)
+        time.sleep(5)
 

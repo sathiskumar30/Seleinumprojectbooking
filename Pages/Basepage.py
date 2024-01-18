@@ -60,9 +60,9 @@ class Basepage:
         print("Clicking the element:", element)
         element.click()
 
-    def wait_enter_a_value(self,locator_name,locator_value,name):
+    def wait_enter_a_value(self,locator_name,locator_value,name,value):
         by_strategy = self.get_by_strategy(locator_name)
-        element = self.wait_for_element(by_strategy, locator_value)
+        element = self.wait_for_element(by_strategy, locator_value,value)
         element.click()
         element.clear()
         element.send_keys(name)
@@ -98,3 +98,5 @@ class Basepage:
         element = self.get_element(locator_name, locator_value)
         element.send_keys(date)
         element.send_keys(Keys.RETURN)
+
+
