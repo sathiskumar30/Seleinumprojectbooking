@@ -27,9 +27,9 @@ class Prompt(Basepage):
         # user_input_str = prompt_text.split(":")[1].strip()
         target_element = self.driver.find_element(By.NAME, "q")
         target_element.click
+        time.sleep(2)
         target_element.send_keys("hi")
         time.sleep(10)
-
 
     def enter_value_in_field(self, user_input):
         target_element = self.driver.find_element(By.NAME,"q")
