@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f6b3ae6-ea6f-41de-9321-72ee9ae6af6f" name="Changes" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/Pages/Promptpage.py" afterDir="false" />
+    <list default="true" id="2f6b3ae6-ea6f-41de-9321-72ee9ae6af6f" name="Changes" comment="Second commit">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Configuration/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Configuration/config.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Basepage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Basepage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Bookingpage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Bookingpage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Homepage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Homepage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Loginpage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Loginpage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testcases/test_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testcases/test_function.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +36,9 @@
         <option name="url" value="https://github.com/sathiskumar30/Seleinumprojectbooking.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -216,7 +213,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704991600892</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Second commit">
+      <option name="closed" value="true" />
+      <created>1705594202503</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705594202503</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Second commit">
+      <option name="closed" value="true" />
+      <created>1705594419036</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705594419036</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,6 +246,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Second commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Second commit" />
   </component>
 </project>
