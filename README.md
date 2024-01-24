@@ -1,6 +1,6 @@
 # Selenium Web Automation with python for "https://www.ixigo.com/"
 
-This project demonatrates web automation using Selenium with python.
+This project demonstrates web automation using Selenium with python.
    ## Automate the process of booking a "Bus ticket" in a dynamic manner, select the first lowest price .
 
 ## Contents
